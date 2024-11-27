@@ -1,3 +1,0 @@
-C:/Users/oskar/OneDrive/Desktop/Programowanie/IRC Client/build/CMakeFiles/irc_client.dir
-C:/Users/oskar/OneDrive/Desktop/Programowanie/IRC Client/build/CMakeFiles/edit_cache.dir
-C:/Users/oskar/OneDrive/Desktop/Programowanie/IRC Client/build/CMakeFiles/rebuild_cache.dir

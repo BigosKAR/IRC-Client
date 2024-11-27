@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\irc_client.exe.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\irc_client.exe.dir/objects.a @CMakeFiles\irc_client.exe.dir\objects1.rsp
-C:\msys64\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\irc_client.exe.dir/objects.a -Wl,--no-whole-archive -o irc_client.exe.exe -Wl,--out-implib,libirc_client.exe.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\irc_client.exe.dir\linkLibs.rsp

@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/oskar/OneDrive/Desktop/Programowanie/IRC Client/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe   -g -o CMakeFiles\\irc_client.dir\\main.c.obj -c \"C:\\Users\\oskar\\OneDrive\\Desktop\\Programowanie\\IRC Client\\main.c\"",
-  "file": "C:/Users/oskar/OneDrive/Desktop/Programowanie/IRC Client/main.c",
-  "output": "CMakeFiles/irc_client.dir/main.c.obj"
-}
-]

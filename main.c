@@ -20,6 +20,25 @@
 
 SOCKET sockfd;
 
+// SETUP FOR ALREADY REGISTERED USERS!
+void setup(SOCKET sockfd, struct sockaddr_in *local_address){
+    char message[BUFFER_LEN];
+    int local_port = ntohs(local_address->sin_port);
+    printf("Connected to %s on port %d\n", SERVER, PORT);
+
+    snprintf(message, sizeof(message), "NICK %s\r\n", NICKNAME);
+    send(sockfd, message, strlen(message), 0);
+
+    snprintf(message, sizeof(message), "USER %s 0 * :%s\r\n", USERNAME, USERNAME);
+    send(sockfd, message, strlen(message), 0);
+
+    snprintf(message, sizeof(message), "JOIN %s\r\n", CHANNEL);
+    send(sockfd, message, strlen(message), 0);
+
+    snprintf(message, sizeof(message), "113 :%s :%d\r\n", NICKNAME, local_port);
+    send(sockfd, message, strlen(message), 0);
+}
+
 void send_message(SOCKET sockfd, const char *message) {
     send(sockfd, message, strlen(message), 0);
     printf("Sent: %s", message);
@@ -55,7 +74,8 @@ void receive_messages(SOCKET sockfd) {
             char *ping_id = strchr(ping_message, ':');
             if (*ping_id != '\0') {
                 snprintf(potential_message, sizeof(potential_message), "PONG %s\r\n", ping_id);
-                send_message(sockfd, potential_message);
+                //send_message(sockfd, potential_message); HIDE PONG MESSAGE FROM USER
+                send(sockfd, potential_message, strlen(potential_message), 0);
             } else {
                 printf("Error fetching the PING ID.\n");
             }
@@ -113,20 +133,7 @@ int main() {
         return 1;
     }
 
-    local_port = ntohs(local_addr.sin_port);
-    printf("Connected to %s on port %d\n", SERVER, PORT);
-
-    snprintf(message, sizeof(message), "NICK %s\r\n", NICKNAME);
-    send_message(sockfd, message);
-
-    snprintf(message, sizeof(message), "USER %s 0 * :%s\r\n", USERNAME, USERNAME);
-    send_message(sockfd, message);
-
-    snprintf(message, sizeof(message), "JOIN %s\r\n", CHANNEL);
-    send_message(sockfd, message);
-
-    snprintf(message, sizeof(message), "113 :%s :%d\r\n", NICKNAME, local_port);
-    send_message(sockfd, message);
+    setup(sockfd, &local_addr);
 
     fd_set read_fds, write_fds;
     struct timeval timeout;

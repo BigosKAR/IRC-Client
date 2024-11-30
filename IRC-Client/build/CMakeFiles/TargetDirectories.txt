@@ -1,3 +1,0 @@
-C:/Users/rdjg2/OneDrive/Escritorio/ie/2/1st semester/Computer Programming I/FINAL PROJECT/VERSION BUENA/IRC-Client/build/CMakeFiles/irc_client.dir
-C:/Users/rdjg2/OneDrive/Escritorio/ie/2/1st semester/Computer Programming I/FINAL PROJECT/VERSION BUENA/IRC-Client/build/CMakeFiles/edit_cache.dir
-C:/Users/rdjg2/OneDrive/Escritorio/ie/2/1st semester/Computer Programming I/FINAL PROJECT/VERSION BUENA/IRC-Client/build/CMakeFiles/rebuild_cache.dir

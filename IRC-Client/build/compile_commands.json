@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/rdjg2/OneDrive/Escritorio/ie/2/1st semester/Computer Programming I/FINAL PROJECT/VERSION BUENA/IRC-Client/build",
+  "command": "C:/msys64/ucrt64/bin/gcc.exe   -g -o CMakeFiles/irc_client.dir/main.c.obj -c \"C:/Users/rdjg2/OneDrive/Escritorio/ie/2/1st semester/Computer Programming I/FINAL PROJECT/VERSION BUENA/IRC-Client/main.c\"",
+  "file": "C:/Users/rdjg2/OneDrive/Escritorio/ie/2/1st semester/Computer Programming I/FINAL PROJECT/VERSION BUENA/IRC-Client/main.c",
+  "output": "CMakeFiles/irc_client.dir/main.c.obj"
+}
+]

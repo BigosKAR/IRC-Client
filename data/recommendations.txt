@@ -1,0 +1,32 @@
+IRC CLIENT USER GUIDE
+---------------------
+
+|IMPORTANT| - DO NOT SHARE ANY PERSONAL INFORMATION WHEN INSIDE A SERVER!!
+
+
+SECURITY
+--------
+-> Do not use your real name or any sensitive information as your username: Choose a unique and anonymous nickname to protect your identity.
+-> Avoid sharing personal or sensitive information in public or private chats: Remember that any information shared on a server can potentially be seen or logged by others.
+-> Be cautious when clicking on links: Links sent in channels or private messages may lead to phishing sites or malware.
+-> Use strong passwords: If registering your nickname or account, ensure your password is strong and unique to prevent unauthorized access.
+-> Report suspicious activity: If you encounter any suspicious behavior or receive unsolicited messages, consider reporting the user or blocking them.
+
+
+RECOMMENDATIONS
+---------------
+-> Familiarize yourself with IRC commands: Commands like /whois, /ignore, and /query are useful for managing your experience and protecting your privacy. (Check Useful commands)
+-> Join trusted channels: Stick to known and reputable channels to minimize the risk of interacting with malicious users.
+-> Log out after use: If you’re using the client on a shared device, make sure to log out and close the application properly.
+-> Keep your client up to date: Regular updates help protect against vulnerabilities.
+-> Be mindful of channel rules: Each channel may have its own rules regarding behavior and acceptable content. Follow them to avoid being banned or reported.
+
+
+WARNINGS
+--------
+-> Private messages are not fully secure: Treat private conversations as potentially public, especially if the server or client lacks end-to-end encryption.
+-> Beware of unsolicited file transfers: Do not accept files from users you do not trust, as they could contain viruses or malware.
+-> Admins and operators are not always trustworthy: Server administrators and channel operators have elevated permissions but are not immune to abusing them.
+-> Do not assume anonymity: IRC networks may log messages, and your IP address is visible unless using a proxy or VPN.
+-> Phishing attempts: Be wary of messages asking for account credentials or directing you to input personal information on external websites.
+-> Stay safe and enjoy using our IRC client responsibly!

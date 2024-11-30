@@ -1,0 +1,87 @@
+IRC CLIENT COMMANDS GUIDE
+-------------------------
+
+|IMPORTANT| - USE /user_help IN THE SERVER TO SEE THIS SUBMENU AGAIN
+
+
+BASIC COMMANDS
+--------------
+
+-> /join <#channel>
+    > Joins a specific channel. Replace <#channel> with the name of the channel you want to join.
+    > Example: /join #chatroom
+
+-> /part <#channel>
+    > Leaves the specified channel.
+    > Example: /part #chatroom
+
+-> /quit [message]
+    > Disconnects you from the server. Optionally, include a message that will be shown to others when you leave.
+    > Example: /quit Goodbye!
+
+-> /nick <new_nickname>
+    > Changes your nickname to the specified one.
+    > Example: /nick CoolUser123
+
+-> /whois <nickname>
+    > Retrieves information about the specified user, such as their server status and channels.
+    > Example: /whois User123
+
+
+MESSAGING COMMANDS
+------------------
+-> /msg <nickname> <message>
+    > Sends a private message to the specified user.
+    > Example: /msg Friend123 Hello, how are you?
+
+-> /notice <nickname> <message>
+    > Sends a notification to a user. Similar to /msg, but typically used for non-conversational messages.
+    > Example: /notice User123 Don't forget the meeting at 5!
+
+-> /me <action>
+    > Sends a message in third person to describe an action.
+    > Example: /me waves hello -> User123 waves hello
+
+
+CHANNEL MANAGEMENT
+------------------
+-> /topic <new_topic>
+    > Sets or changes the topic of the current channel (if you have permission).
+    > Example: /topic Welcome to the #chatroom channel!
+
+-> /kick <nickname> [reason]
+    > Removes a user from the current channel (requires operator permissions).
+    > Example: /kick Troublemaker123 Spamming is not allowed!
+
+-> /mode <nickname or #channel> <flags>
+    > Changes user or channel modes, such as granting operator privileges.
+    > Example: /mode #chatroom +o User123 (makes User123 an operator)
+
+
+OTHER USEFUL COMMANDS
+---------------------
+-> /list [search_term]
+    > Lists all channels on the server. Optionally, filter channels by including a search term.
+    > Example: /list or /list music
+
+-> /away [message]
+    > Sets your status to away, optionally including a message.
+    > Example: /away Out for lunch
+
+-> /invite <nickname> <#channel>
+    > Invites a user to join a specific channel.
+    > Example: /invite Friend123 #chatroom
+
+-> /ignore <nickname>
+    > Ignores all messages from the specified user.
+    > Example: /ignore Troll123
+
+-> /ping <server>
+    > Checks the connection latency with the specified server.
+    > Example: /ping Oslo.NO.EU.UnderNet.org
+
+
+TIPS
+----
+-> Commands are case-insensitive, but channels and nicknames are usually case-sensitive.
+-> Remember to use /help on the server for a full list of commands and their descriptions!

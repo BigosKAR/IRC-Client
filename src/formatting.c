@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 #define BUFFER_LEN 512
 
@@ -55,4 +57,19 @@ char *format_command(const char *input) {
         printf("\n|ERROR| - Invalid format. Commands must begin with '/'.\n\n");
         return NULL;
     }
+}
+
+char *toLower(char *string) {
+    if (!string) {
+        return NULL;
+    }
+    char *lower_case = malloc(strlen(string)+1);
+    if(!lower_case) {
+        return NULL;
+    }
+    for(int i=0; i<strlen(string); i++){
+        lower_case[i] = tolower(string[i]);
+    }
+    lower_case[strlen(string)] = '\0';
+    return lower_case;
 }

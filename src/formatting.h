@@ -3,5 +3,6 @@
 
 void format_string(char *string);
 char *format_command(const char *input);
+char *toLower(char *string);
 
 #endif

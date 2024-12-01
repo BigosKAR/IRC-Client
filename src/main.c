@@ -29,12 +29,13 @@
 SOCKET sockfd;
 
 
+typedef struct User User;
 //function prototypes
 
     //irc_client
-int run_client(char *username);
-void setup(char *username, SOCKET sockfd, struct sockaddr_in *local_address);
-void send_message(SOCKET sockfd, const char *message);
+int run_client(User *User);
+void setup(User User, SOCKET sockfd, struct sockaddr_in *local_address);
+void send_message(SOCKET sockfd, const char *message, User *User);
 void receive_messages(SOCKET sockfd);
 
     //commands and others
@@ -44,13 +45,28 @@ void show_file_info(char *filename);
     //menu function
 char *menu();
 
+struct User {
+    char username[MAX_USERNAME_LEN];
+    char password[MAX_PASSWORD_LEN];
+};
+
+void initialize_user(User *user){
+    strncpy(user->username, NICKNAME, sizeof(user->username)-1);
+    user->username[sizeof(user->username)-1] = '\0';
+    strncpy(user->password, CLIENT_PASSWORD, sizeof(user->password)-1);
+    user->password[sizeof(user->password)-1] = '\0';
+}
+
 int main() {
     int result;
     char username[MAX_PASSWORD_LEN];
-
+    User IRC_User;
+    initialize_user(&IRC_User);
     strcpy(username, menu());
+    strncpy(IRC_User.username, username, sizeof(IRC_User.username)-1);
+    IRC_User.username[sizeof(IRC_User.username)-1] = '\0';
     if (strcmp(" ", username) != 0){
-        result = run_client(username);
+        result = run_client(&IRC_User);
 
         if(result == 1){
             return result;
@@ -61,7 +77,7 @@ int main() {
 }
 
 //FUNCTIONS FOR IRC_CLIENT
-int run_client(char *username) {
+int run_client(User *User) {
 
     WSADATA wsaData;
     SOCKET sockfd;
@@ -108,7 +124,7 @@ int run_client(char *username) {
         return 1;
     }
 
-    setup(username, sockfd, &local_addr);
+    setup(*User, sockfd, &local_addr);
 
     fd_set read_fds, write_fds;
     struct timeval timeout;
@@ -138,7 +154,7 @@ int run_client(char *username) {
         if (FD_ISSET(sockfd, &write_fds)) {
             if (kbhit()) //waiting for user input
             { 
-                printf("\n=====================> %s: ", username);
+                printf("\n=====================> %s: ", User->username);
                 fgets(input_buffer, BUFFER_LEN, stdin);
                 printf("\n");
                 input_buffer[strcspn(input_buffer, "\n")] = '\0'; 
@@ -146,7 +162,7 @@ int run_client(char *username) {
                 if (strlen(input_buffer) > 0) {
                     char send_msg[BUFFER_LEN + 2];
                     snprintf(send_msg, sizeof(send_msg), "%s\r\n", input_buffer);
-                    send_message(sockfd, send_msg);
+                    send_message(sockfd, send_msg, User);
                 }
             }
         }
@@ -160,39 +176,52 @@ int run_client(char *username) {
 
 
 //setup for already registered users
-void setup(char *username, SOCKET sockfd, struct sockaddr_in *local_address){
+void setup(User User, SOCKET sockfd, struct sockaddr_in *local_address){
     char message[BUFFER_LEN];
     int local_port = ntohs(local_address->sin_port);
     printf("Connected to %s on port %d\n", SERVER, PORT);
 
-    snprintf(message, sizeof(message), "NICK %s\r\n", NICKNAME);
+    snprintf(message, sizeof(message), "NICK %s\r\n", User.username);
     send(sockfd, message, strlen(message), 0);
 
-    snprintf(message, sizeof(message), "USER %s 0 * :%s\r\n", username, username);
+    snprintf(message, sizeof(message), "USER %s 0 * :%s\r\n", User.username, User.username);
     send(sockfd, message, strlen(message), 0);
 
     snprintf(message, sizeof(message), "JOIN %s\r\n", CHANNEL);
     send(sockfd, message, strlen(message), 0);
 
-    snprintf(message, sizeof(message), "113 :%s :%d\r\n", NICKNAME, local_port);
+    snprintf(message, sizeof(message), "113 :%s :%d\r\n", User.username, local_port);
     send(sockfd, message, strlen(message), 0);
     
-    snprintf(message, sizeof(message), "REGISTER %s %s\r\n", CLIENT_EMAIL, CLIENT_PASSWORD);
+    snprintf(message, sizeof(message), "REGISTER %s %s\r\n", CLIENT_EMAIL, User.password);
     send(sockfd, message, strlen(message), 0);
 }
 
-void send_message(SOCKET sockfd, const char *message) {
+void send_message(SOCKET sockfd, const char *message, User *User) {
     if (strstr(message, "/user_help") != NULL) {
         show_file_info(COMMANDS_FILE);
         return;
     }
+
     char *formatted = format_command(message);
     if (formatted == NULL) {
         return;
     }
     send(sockfd, formatted, strlen(formatted), 0);
-    printf("Sent: %s\r\n", formatted);
     printf("\n");
+    //printf("Sent: %s\r\n", formatted);
+    // Specific case for changing nickname
+    char *lower_comm = toLower(formatted);
+    if (strstr(lower_comm, "nick") != NULL) {
+        char *new_nick = strchr(formatted, ' ');
+        if (new_nick != NULL) {
+            new_nick++;
+            new_nick[strcspn(new_nick, "\r\n")] = '\0';
+            strncpy(User->username, new_nick, sizeof(User->username)-1);
+            User->username[sizeof(User->username)-1] = '\0';
+        }
+    }
+    free(lower_comm);
 }
 
 

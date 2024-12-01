@@ -209,7 +209,7 @@ void send_message(SOCKET sockfd, const char *message, User *User) {
     }
     send(sockfd, formatted, strlen(formatted), 0);
     printf("\n");
-    //printf("Sent: %s\r\n", formatted);
+    printf("Sent: %s\r\n", formatted);
     // Specific case for changing nickname
     char *lower_comm = toLower(formatted);
     if (strstr(lower_comm, "nick") != NULL) {

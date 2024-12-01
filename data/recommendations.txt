@@ -30,3 +30,5 @@ WARNINGS
 -> Do not assume anonymity: IRC networks may log messages, and your IP address is visible unless using a proxy or VPN.
 -> Phishing attempts: Be wary of messages asking for account credentials or directing you to input personal information on external websites.
 -> Stay safe and enjoy using our IRC client responsibly!
+
+

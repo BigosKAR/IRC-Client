@@ -4,12 +4,15 @@
 #include <unistd.h>
 #include "accounts.h"
 
+#define ACCOUNTS_FILE "../data/accounts.txt"
+
 //FUNCTIONS FOR USER LOG IN/SIGN UP
 
 int usernameExists(const char *username) {
     FILE *fp = fopen(ACCOUNTS_FILE, "r");
     if (!fp) {
         //if file doesn't exist, no accounts exist yet.
+        printf("\n|ERROR - usernameExists| - Cannot open %s.\n", ACCOUNTS_FILE);
         return 0;
     }
     char line[MAX_LINE_LEN];
@@ -32,6 +35,7 @@ int checkPassword(const char *username, const char *password) {
     FILE *fp = fopen(ACCOUNTS_FILE, "r");
     if (!fp) {
         //if file doesn't exist, no accounts exist yet.
+        printf("\n|ERROR - checkPassword| - Cannot open %s.\n", ACCOUNTS_FILE);
         return 0;
     }
     char line[MAX_LINE_LEN];
@@ -90,9 +94,9 @@ char* registerUser() {
 
     FILE *fp = fopen(ACCOUNTS_FILE, "a");
     if (!fp) {
-        printf("\nError opening accounts file.\n");
+        printf("\n|ERROR - registerUser| - Cannot open %s.\n", ACCOUNTS_FILE);
         free(username); 
-        return NULL;
+        exit(1);
     }
     fprintf(fp, "%s %s\n", username, password);
     fclose(fp);

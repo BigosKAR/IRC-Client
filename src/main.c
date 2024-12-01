@@ -17,7 +17,7 @@
 #define SERVER "Oslo.NO.EU.UnderNet.org"  
 #define PORT 6667                   
 #define CHANNEL "#testchannel"     
-#define NICKNAME "lsdsañkdmcpsjksakcajncsdk"          
+#define NICKNAME "TestBot"          
 #define CLIENT_EMAIL "default@gmail.com" 
 #define CLIENT_PASSWORD "testingircclient"
 

@@ -4,8 +4,6 @@
 #include <unistd.h>
 #include "accounts.h"
 
-#define ACCOUNTS_FILE "../data/accounts.txt"
-
 //FUNCTIONS FOR USER LOG IN/SIGN UP
 
 int usernameExists(const char *username) {

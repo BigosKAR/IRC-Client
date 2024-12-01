@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/build",
+  "command": "C:/msys64/ucrt64/bin/gcc.exe   -g -o CMakeFiles/irc_client.dir/src/main.c.obj -c C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/src/main.c",
+  "file": "C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/src/main.c",
+  "output": "CMakeFiles/irc_client.dir/src/main.c.obj"
+},
+{
+  "directory": "C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/build",
+  "command": "C:/msys64/ucrt64/bin/gcc.exe   -g -o CMakeFiles/irc_client.dir/src/accounts.c.obj -c C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/src/accounts.c",
+  "file": "C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/src/accounts.c",
+  "output": "CMakeFiles/irc_client.dir/src/accounts.c.obj"
+},
+{
+  "directory": "C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/build",
+  "command": "C:/msys64/ucrt64/bin/gcc.exe   -g -o CMakeFiles/irc_client.dir/src/formatting.c.obj -c C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/src/formatting.c",
+  "file": "C:/Users/rdjg2/OneDrive/Escritorio/program/IRC-Client-restructured_irc/src/formatting.c",
+  "output": "CMakeFiles/irc_client.dir/src/formatting.c.obj"
+}
+]
